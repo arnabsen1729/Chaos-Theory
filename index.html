@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaos Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h2>
+        CHAOS GAME
+    </h2>
+    <p id="info">Change the slider you will notice a beautiful fractal (Sierpinski triangle) begin generated. This
+        pattern is generated from
+        simple
+        randomness. Numberphile has an amazing
+        video on this</p>
+    <iframe width="660" height="370" src="https://www.youtube.com/embed/kbKtFN71Lfs" frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div id="display">
+        <canvas width="1000" height="850"></canvas>
+    </div>
+    <div class="slidecontainer">
+        <input type="range" min="0" max="10000" value="100" class="slider" id="valueRange">
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
