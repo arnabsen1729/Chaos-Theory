@@ -32,7 +32,6 @@ function App() {
           .clone();
         return sp;
       });
-      console.log(newRandPoints);
       setRandPoints(newRandPoints);
     } else setRandPoints([]);
   }, [points]);
