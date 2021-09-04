@@ -46,31 +46,33 @@ function App() {
         {randPoints.slice(0, sliderVal).map((point) => {
           return (
             <mesh position={point}>
-              <sphereGeometry args={[0.05]} />
-              <meshBasicMaterial color="black" />
+              <sphereGeometry args={[0.01]} />
+              <meshBasicMaterial color="green" />
             </mesh>
           );
         })}
       </Canvas>
 
       <div id="control">
-        <input
-          name="coordinate"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-        />
-        <button
-          onClick={(_) => {
-            const [x, y, z] = input
-              .trim()
-              .split(",")
-              .map((e) => Number(e))
-              .slice(0, 3);
-            setPoints([...points, [x, y, z]]);
-          }}
-        >
-          Add Point
-        </button>
+        <div id="input">
+          <input
+            name="coordinate"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+          />
+          <button
+            onClick={(_) => {
+              const [x, y, z] = input
+                .trim()
+                .split(",")
+                .map((e) => Number(e))
+                .slice(0, 3);
+              setPoints([...points, [x, y, z]]);
+            }}
+          >
+            Add Point
+          </button>
+        </div>
         <div className="slidecontainer">
           <input
             type="range"

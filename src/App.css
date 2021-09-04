@@ -18,17 +18,24 @@ canvas {
   position: fixed;
   bottom: 0;
   top: auto;
+  display: flex;
+  width: 100%;
 }
-
+#input {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
 .slidecontainer {
   padding-top: 20px;
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 50%;
+  padding-bottom: 20px;
 }
 .slider {
   -webkit-appearance: none;
-  width: 50%;
+  width: 90%;
   height: 15px;
   border-radius: 5px;
   background: #d3d3d3;
