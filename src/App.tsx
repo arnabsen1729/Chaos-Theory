@@ -6,9 +6,14 @@ import Help from "./Help";
 import "./App.css";
 
 const startPoint = [0, 0, 0];
+const initPoints = [
+  [0, 2, 0],
+  [+2, -2, 0],
+  [-2, -2, 0],
+];
 
 function App() {
-  const [points, setPoints] = useState<number[][]>([]);
+  const [points, setPoints] = useState<number[][]>(initPoints);
   const [randPoints, setRandPoints] = useState<THREE.Vector3[]>([]);
   const [sliderVal, setSliderVal] = useState(0);
   const [input, setInput] = useState("");
