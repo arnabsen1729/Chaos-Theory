@@ -1,0 +1,99 @@
+.App {
+  text-align: center;
+}
+
+button {
+  font-size: calc(10px + 2vmin);
+}
+
+canvas {
+  width: 100vh;
+  height: 100vh;
+  right: 0;
+  bottom: 0;
+}
+
+#control {
+  z-index: 10;
+  position: fixed;
+  bottom: 0;
+  top: auto;
+  display: flex;
+  width: 100%;
+}
+#help-button {
+  padding-left: 1;
+  padding-right: 1;
+  margin-left: 1;
+  margin-right: 1;
+}
+#help {
+  justify-content: center;
+  top: 0;
+  border: 1px solid #888;
+  width: 50%;
+  background-color: white;
+}
+#input {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+.slidecontainer {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  padding-bottom: 20px;
+}
+.slider {
+  -webkit-appearance: none;
+  width: 90%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #4caf50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #4caf50;
+  cursor: pointer;
+}
+h2 {
+  top: 4%;
+  left: 5%;
+  font-family: "Girassol", cursive;
+  font-size: 40px;
+  letter-spacing: 4px;
+}
+#info {
+  top: 10%;
+  left: 5%;
+  width: 600px;
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+
+.flex {
+  display: flex;
+}
