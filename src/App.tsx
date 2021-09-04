@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import Help from "./Help";
 import "./App.css";
 
 const startPoint = [0, 0, 0];
@@ -28,36 +29,39 @@ function App() {
       });
       console.log(newRandPoints);
       setRandPoints(newRandPoints);
-    }
+    } else setRandPoints([]);
   }, [points]);
 
   return (
     <div className="App">
-      <Canvas>
-        <OrbitControls />
-        {points.map(([x, y, z]) => {
-          return (
-            <mesh position={[x, y, z]}>
-              <sphereGeometry args={[0.1]} />
-              <meshBasicMaterial color="black" />
-            </mesh>
-          );
-        })}
-        {randPoints.slice(0, sliderVal).map((point) => {
-          return (
-            <mesh position={point}>
-              <sphereGeometry args={[0.01]} />
-              <meshBasicMaterial color="green" />
-            </mesh>
-          );
-        })}
-      </Canvas>
-
+      <div className="flex">
+        <Help />
+        <Canvas>
+          <OrbitControls />
+          {points.map(([x, y, z]) => {
+            return (
+              <mesh position={[x, y, z]}>
+                <sphereGeometry args={[0.1]} />
+                <meshBasicMaterial color="black" />
+              </mesh>
+            );
+          })}
+          {randPoints.slice(0, sliderVal).map((point) => {
+            return (
+              <mesh position={point}>
+                <sphereGeometry args={[0.02]} />
+                <meshBasicMaterial color="green" />
+              </mesh>
+            );
+          })}
+        </Canvas>
+      </div>
       <div id="control">
         <div id="input">
           <input
             name="coordinate"
             value={input}
+            placeholder="0,0,0"
             onChange={(e) => setInput(e.target.value)}
           />
           <button
@@ -72,6 +76,7 @@ function App() {
           >
             Add Point
           </button>
+          <button onClick={(_) => setPoints([])}>Clear</button>
         </div>
         <div className="slidecontainer">
           <input
