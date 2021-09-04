@@ -7,12 +7,10 @@ button {
 }
 
 canvas {
-  width: 100%;
-  height: 100%;
-  left: 0;
+  width: 100vh;
+  height: 100vh;
   right: 0;
   bottom: 0;
-  top: 0;
 }
 
 #control {
@@ -20,4 +18,44 @@ canvas {
   position: fixed;
   bottom: 0;
   top: auto;
+}
+
+.slidecontainer {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.slider {
+  -webkit-appearance: none;
+  width: 50%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #4caf50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #4caf50;
+  cursor: pointer;
 }
