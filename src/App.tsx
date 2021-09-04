@@ -1,45 +1,54 @@
-import React, { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import React, { useState } from "react";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [points, setPoints] = useState<number[][]>([]);
+  const [x, setX] = useState<number>(0);
+  const [y, setY] = useState<number>(0);
+  const [z, setZ] = useState<number>(0);
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+      <Canvas>
+        <OrbitControls />
+        {points.map(([x, y, z]) => {
+          return (
+            <mesh position={[x, y, z]}>
+              <sphereGeometry args={[0.1]} />
+              <meshBasicMaterial color="black" />
+            </mesh>
+          );
+        })}
+      </Canvas>
+
+      <div id="control">
+        <input
+          name="x-coordinate"
+          value={x}
+          onChange={(e) => setX(Number(e.target.value))}
+        />
+        <input
+          name="y-coordinate"
+          value={y}
+          onChange={(e) => setY(Number(e.target.value))}
+        />
+        <input
+          name="z-coordinate"
+          value={z}
+          onChange={(e) => setZ(Number(e.target.value))}
+        />
+        <button
+          onClick={(_) => {
+            setPoints([...points, [x, y, z]]);
+          }}
+        >
+          Add Point
+        </button>
+      </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
